@@ -26,6 +26,54 @@
     "covers": "Kotlin multiplatform (commonMain + jvmMain), Kotlin 2.3, JDK 8/11 toolchains, org.gradle.caching=true"
   },
   {
+    "name": "clikt",
+    "repository": "ajalt/clikt",
+    "ref": "fa2e48c54995a88d492f05568a64889d99994877",
+    "build_command": [
+      "compileKotlinJvm",
+      "compileTestKotlinJvm",
+      "compileKotlin",
+      "compileTestKotlin"
+    ],
+    "java": 21,
+    "android": false,
+    "covers": "Kotlin multiplatform CLI library, Kotlin 2.3, JVM library/test/sample sources, delegated properties, generic parameter types and extension APIs"
+  },
+  {
+    "name": "coil",
+    "repository": "coil-kt/coil",
+    "ref": "5c9c78af943e0e1cf5ca67f3d48928c1f5074d7d",
+    "build_command": [
+      "--no-configuration-cache",
+      "compileKotlinJvm",
+      "compileTestKotlinJvm",
+      "compileAndroidMain",
+      "compileAndroidHostTest",
+      "compileDebugKotlin",
+      "compileDebugUnitTestKotlin",
+      "compileKotlin",
+      "compileTestKotlin"
+    ],
+    "java": 21,
+    "android": true,
+    "covers": "Kotlin multiplatform image-loading library, Kotlin 2.4, AGP 9.4 Android and JVM targets, Compose, coroutines, atomicfu and Poko compiler plugins, buildSrc"
+  },
+  {
+    "name": "ktlint",
+    "repository": "pinterest/ktlint",
+    "ref": "5775b58d0f996e84c9c67205342f1c5620de6a4a",
+    "build_command": [
+      "--no-configuration-cache",
+      "compileKotlin",
+      "compileTestKotlin",
+      "compileJava",
+      "compileTestJava"
+    ],
+    "java": 26,
+    "android": false,
+    "covers": "CLI, rule engine, rules and reporters; multi-module Kotlin JVM, Kotlin 2.4, JDK 26 targeting Java 17, compiler/PSI APIs, build-logic included build"
+  },
+  {
     "name": "spring-framework",
     "repository": "spring-projects/spring-framework",
     "ref": "62c0f6f59e6be8cd4f20046cceceb5b31f56f63c",

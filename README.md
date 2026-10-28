@@ -25,8 +25,11 @@ bin/run.py --label my-fix kotlinx-datetime
 with the checkout's own flake (always rebuilt for a dirty checkout), clones each
 project at its pinned commit into `cache/repos/`, and runs `scip-java index` in
 the project's dev shell. Gradle uses a dedicated `cache/gradle-home`, toolchains
-resolve only to the flake's JDKs (8, 11, 17, 21, 25), and the build cache is
+resolve only to the flake's JDKs (8, 11, 17, 21, 25, 26), and the build cache is
 cleared before each project.
+
+JDK 26 uses the Temurin package definition from a separately pinned
+`nixpkgs-unstable` input; the remaining packages stay on NixOS 26.05.
 
 ## Statistics
 

@@ -5,6 +5,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     # Same channel and scip CLI as scip-java's own flake.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      flake = false;
+    };
     scip.url = "github:scip-code/scip";
   };
 
@@ -13,6 +17,7 @@
       self,
       flake-utils,
       nixpkgs,
+      nixpkgs-unstable,
       scip,
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -26,6 +31,13 @@
           };
         };
 
+        # Import only the newer Temurin recipe: keep the stable package set,
+        # including its x86_64-darwin support, for all dependencies.
+        jdk26 =
+          (pkgs.callPackage "${nixpkgs-unstable}/pkgs/development/compilers/temurin-bin/jdk-${
+            if pkgs.stdenv.hostPlatform.isDarwin then "darwin" else "linux"
+          }.nix" { }).jdk-26;
+
         # Corpus projects declare Gradle toolchains (e.g. kotlinx-datetime wants 8,
         # 11 and 17). bin/run.py hands these to Gradle as installation paths so
         # toolchains resolve to Nix JDKs instead of auto-downloads.
@@ -35,6 +47,7 @@
           jdk17
           jdk21
           jdk25
+          jdk26
         ];
 
         # Read-only SDK: every platform and build-tools version the corpus needs
@@ -75,6 +88,7 @@
           jdk17 = pkgs.jdk17;
           jdk21 = pkgs.jdk21;
           jdk25 = pkgs.jdk25;
+          inherit jdk26;
         };
       in
       {
