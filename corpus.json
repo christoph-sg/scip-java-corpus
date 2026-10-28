@@ -1,0 +1,97 @@
+[
+  {
+    "name": "retrofit",
+    "repository": "square/retrofit",
+    "ref": "dce3fe08b610e3339005c3e963b6f1938d079929",
+    "build_command": [
+      "compileJava",
+      "compileKotlin",
+      "compileTestJava",
+      "compileTestKotlin"
+    ],
+    "java": 21,
+    "android": true,
+    "covers": "Java and Kotlin in the same module (retrofit/src/main/java/retrofit2/KotlinExtensions.kt), Kotlin 2.4, AGP module in the build"
+  },
+  {
+    "name": "kotlinx-datetime",
+    "repository": "Kotlin/kotlinx-datetime",
+    "ref": "d79ac8adb112ba1bf67711f3ad77b928cb7528ea",
+    "build_command": [
+      ":kotlinx-datetime:compileKotlinJvm",
+      ":kotlinx-datetime:compileTestKotlinJvm"
+    ],
+    "java": 17,
+    "android": false,
+    "covers": "Kotlin multiplatform (commonMain + jvmMain), Kotlin 2.3, JDK 8/11 toolchains, org.gradle.caching=true"
+  },
+  {
+    "name": "spring-framework",
+    "repository": "spring-projects/spring-framework",
+    "ref": "62c0f6f59e6be8cd4f20046cceceb5b31f56f63c",
+    "build_command": [
+      ":spring-core:compileJava",
+      ":spring-core:compileKotlin",
+      ":spring-core:compileTestJava",
+      ":spring-core:compileTestKotlin",
+      ":spring-beans:compileJava",
+      ":spring-beans:compileKotlin",
+      ":spring-beans:compileTestJava",
+      ":spring-beans:compileTestKotlin",
+      ":spring-context:compileJava",
+      ":spring-context:compileKotlin",
+      ":spring-context:compileTestJava",
+      ":spring-context:compileTestKotlin"
+    ],
+    "java": 25,
+    "android": false,
+    "covers": "Spring core, beans, and context production/test sources; non-Android multi-module Java/Kotlin, Kotlin 2.4, JDK 25 targeting Java 17, test fixtures, multi-release jars, inheritance and generic APIs"
+  },
+  {
+    "name": "timber",
+    "repository": "JakeWharton/timber",
+    "ref": "4d2c28903378e12bfe506287478f8d6df6bf9ce4",
+    "build_command": [
+      ":timber:compileAndroidMain",
+      ":timber-lint:compileKotlin",
+      ":timber-lint:compileTestKotlin"
+    ],
+    "java": 21,
+    "android": true,
+    "covers": "Kotlin multiplatform library with an AGP android target (com.android.kotlin.multiplatform.library), Kotlin JVM lint checks (timber-lint), AGP 9.4, Kotlin 2.4"
+  },
+  {
+    "name": "nowinandroid",
+    "repository": "android/nowinandroid",
+    "ref": "2982e63cb691ad49cd009aab43dc206fee6699c2",
+    "build_command": [
+      "-Dorg.gradle.isolated-projects=false",
+      "--no-configuration-cache",
+      "compileDemoDebugKotlin",
+      "compileDemoDebugUnitTestKotlin",
+      "compileKotlin",
+      "compileTestKotlin"
+    ],
+    "java": 21,
+    "android": true,
+    "covers": "Android app, AGP 9.3, Kotlin 2.3, product flavors, Hilt/Room via KSP, protobuf, Compose, build-logic included build, configuration cache + isolated projects"
+  },
+  {
+    "name": "thunderbird",
+    "repository": "thunderbird/thunderbird-android",
+    "ref": "de8a03268415ce8e0c8b0327d3bbcb6b40a06a91",
+    "build_command": [
+      "-Dorg.gradle.unsafe.isolated-projects=false",
+      "--no-configuration-cache",
+      "compileDebugKotlin",
+      "compileFullDebugKotlin",
+      "compileKotlin",
+      "compileDebugJavaWithJavac",
+      "compileFullDebugJavaWithJavac",
+      "compileJava"
+    ],
+    "java": 21,
+    "android": true,
+    "covers": "Large Android app, legacy Java (K-9 Mail) mixed with Kotlin, AGP 9.2, Kotlin 2.4, KSP, multiplatform modules, configuration cache"
+  }
+]
